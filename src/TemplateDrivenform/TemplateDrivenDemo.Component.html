@@ -1,0 +1,189 @@
+<div class="container">
+    <h1>{{title}}</h1>
+
+    {{UserInfoModule.value|json}}
+
+    <form #UserInfoModule="ngForm">
+        <div class="form-group"></div>
+        <div clas="form-group">
+            <div class="row">
+                <div class="col-md-1">
+                    <label>Name</label>
+                </div>
+                <div class="col-md-4">
+                    <input type="text" id="name" name="name" class="form-control" [(ngModel)]="name"
+                        #fname="ngModel" placeholder="Enter the Name" required>
+                </div>
+                <!-- <div *ngIf="UserInfoModule.submitted && fname.invalid" class="invalid-feedback"> -->
+                <div [hidden]="fname.valid" class="alert alert-danger">First Name is required</div>
+                <!-- </div> -->
+
+
+
+            </div>
+            <div class="form-group"></div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-1">
+                        <label>Email ID</label>
+                    </div>
+                    <div class="col-md-4">
+                        <input type="email" name="email" #emailId="ngModel" class="form-control" [(ngModel)]="email"
+                            placeholder="Enter the mail" required pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$">
+                        </div>
+                            <div class="alert alert-danger" [hidden]="emailId.valid">
+                                Enter the Correct Email Id
+                            </div>
+                    
+                   
+                </div>
+            </div>
+            <div></div>
+            <div ngModelGroup="address">
+                <div class="form-group"></div>
+                <div clas="form-group">
+                    <div class="row">
+                        <div class="col-md-1">
+                            <label>Street:</label>
+                        </div>
+                        <div class="col-md-4">
+                            <input type="text" name="street" class="form-control" [(ngModel)]="street">
+                        </div>
+                    </div>
+                    <div class="form-group"></div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-1">
+                                <label>Zip:</label>
+                            </div>
+                            <div class="col-md-4">
+                                <input type="text" name="Zip" class="form-control" [(ngModel)]="zip">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group"></div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-1">
+                            <label>Country:</label>
+                        </div>
+                        <div class="col-md-4">
+                            <select class="form-control" name="country" [(ngModel)]="ddlcntry">
+                                <option>SELECT</option>
+                                <option>INDIA</option>
+                                <option>USA</option>
+                            </select>
+                            <!-- <input type="text" name="city" class="form-control" [(ngModel)]="city"> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-1">
+                    <label>State</label>
+                </div>
+                <div class="col-md-4">
+                    <select class="form-control" name="state" [(ngModel)]="ddlstate">
+                        <option>SELECT</option>
+                        <option>Maharashtra</option>
+                        <option>Karnataka</option>
+                        <option>Gujrat</option>
+                        <option>Goa</option>
+                        <option>Assam</option>
+                    </select>
+                    <!-- <input type="text" class="form-control" name="State" [(ngModel)]="state"> -->
+                </div>
+            </div>
+            <div class="form-group"></div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-1">
+                        <label>City:</label>
+                    </div>
+                    <div class="col-md-4">
+                        <select class="form-control" name="city" ngModel="ddlcity">
+                            <option value="0">SELECT</option>
+                            <option>Pune</option>
+                            <option>Mumbai</option>
+                            <option>Banglore</option>
+                            <option>Udapi</option>
+                            <option>Surat</option>
+                        </select>
+                        <!-- <input type="text" name="city" class="form-control" [(ngModel)]="city"> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group"></div>
+        <div clas="form-group">
+            <div class="row">
+                <div class="col-md-1">
+                    <label>MobileNo</label>
+                </div>
+                <div class="col-md-4">
+                    <input type="text" name="mobileno" #phone1="ngModel" class="form-control" ngModel
+                        required  pattern="^([+][9][1]|[9][1]|[0]){0,1}([7-9]{1})([0-9]{9})$">
+                </div>
+                <div class="alert alert-danger" [hidden]="phone1.valid">
+                    Enter 10 digit MObile Number
+                </div>
+            </div>
+
+        </div>
+
+        <div class="form-group"></div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-1">
+                    <label>Gender</label>
+                </div>
+                <div class="col-md-4">
+                    <input type="radio" name="Male" value="Male" [(ngModel)]="gmale" checked="true">Male
+                    <input type="radio" name="Male" value="Female" [(ngModel)]="gfemale">Female<br>
+                </div>
+            </div>
+        </div>
+        <div class="form-group"></div>
+        <div clas="form-group">
+            <div class="row">
+                <div class="col-md-1">
+                    <label>Upload Resume</label>
+                </div>
+                <div class="col-md-4">
+                    <!-- <button type="file" class="clicked" >SUBMIT</button> -->
+                    <input type="file" name="uplfile" ngModel multiple="multiple" accept=".doc,.docx,.rtf,.pdf" name="uploadCV"
+                        class=" clicked">
+                </div>
+            </div>
+
+        </div>
+        <div class="form-group"></div>
+        <div clas="form-group">
+            <div class="row">
+                <div class="col-md-1">
+                    <label></label>
+                </div>
+                <div class="col-md-4">
+                    <input type="checkbox" name="chk" ngModel>
+                    <label for="term">I agreed to the Terms and Conditions governing the use of Naukri.com.</label>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="form-group"></div>
+        <div clas="form-group">
+            <div class="row">
+                <div class="col-md-4">
+                    <button type="submit" class="btn btn-success" (click)="Save(UserInfoModule.value)">SUBMIT</button>
+                </div>
+            </div>
+
+        </div>
+
+    </form>
+</div>

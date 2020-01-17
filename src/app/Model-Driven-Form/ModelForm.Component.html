@@ -1,0 +1,263 @@
+<div class="container">
+    <h1>{{title}}</h1>
+    {{studentModel.value|json}}
+    <form [formGroup]="studentModel">
+        <div class="form-group"></div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-1">
+                    <label>Name</label>
+                </div>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" formControlName="name">
+                    <div class="alert alert-danger"
+                        *ngIf="studentModel.controls['name'].hasError('required')&&(studentModel.controls.name.dirty ||studentModel.controls.name.touched)">
+                        Name is required
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <div class="form-group"></div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-1">
+                    <label>Email</label>
+                </div>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" formControlName="email">
+                    <div class="alert alert-danger"
+                        *ngIf="studentModel.controls['email'].hasError('required')&&(studentModel.controls.email.dirty||studentModel.controls.email.touched)">
+                        Email is required
+                    </div>
+
+                    <span class="text-danger" *ngIf="studentModel.controls['email'].hasError('pattern') && 
+                    (studentModel.controls['email'].dirty || studentModel.controls['email'].touched)">
+                        Please enter valid email address</span>
+                </div>
+            </div>
+        </div>
+        <div class="form-group"></div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-1">
+                    <label>Mobile No</label>
+                </div>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" formControlName="mobileno">
+                    <div class="alert alert-danger" *ngIf="studentModel.controls['mobileno'].hasError('required')&&(studentModel.controls.mobileno.dirty
+                     ||studentModel.controls.mobileno.touched)">
+                        Mobile Number required</div>
+                    <span class="alert alert-danger" *ngIf="studentModel.controls['mobileno'].hasError('pattern') &&
+                        (studentModel.controls.mobileno.dirty || studentModel.controls['mobileno'].touched)">
+                        Please enter 10 digit mobile no</span>
+
+                </div>
+
+            </div>
+        </div>
+
+        <div class="form-group"></div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-1">
+                    <label>Password</label>
+                </div>
+                <div class="col-md-4">
+                    <input type="password" class="form-control" formControlName="password">
+                    <div class="alert alert-danger" *ngIf="studentModel.controls['password'].hasError('required') && (studentModel.controls['password'].dirty 
+                    || studentModel.controls.password.touched)">
+                        Create the Password</div>
+                    <span class="alert alert-danger" *ngIf="studentModel.controls['password'].hasError('pattern') &&
+                        (studentModel.controls.password.dirty || studentModel.controls['password'].touched)">
+                        Please the enter the Correct Password like Anj1G@de</span>
+
+                </div>
+
+            </div>
+        </div>
+
+        <div formGroupName="address">
+            <div class="form-group"></div>
+            <div clas="form-group">
+                <div class="row">
+                    <div class="col-md-1">
+                        <label>Street:</label>
+                    </div>
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" formControlName="street">
+                        <div class="alert alert-danger"
+                            *ngIf="studentModel.controls.address.controls['street'].hasError('required') && (studentModel.controls.address.controls.street.dirty ||studentModel.controls.address.controls.street.touched)">
+                            Address is required
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-1">
+                            <label>Zip Code:</label>
+                        </div>
+                        <div class="col-md-4">
+                            <input type="text" class="form-control" formControlName="zip">
+                            <div class="alert alert-danger"  *ngIf="studentModel.controls.address.controls['zip'].hasError('required') && (studentModel.controls.address.controls.zip.dirty 
+                            ||studentModel.controls.address.controls.zip.touched)" >
+                                Enter 6 digit code
+                            </div>
+                            <div class="alert alert-danger"
+                            *ngIf="studentModel.controls.address.controls['zip'].hasError('pattern') && (studentModel.controls.address.controls.zip.dirty ||studentModel.controls.address.controls.zip.touched)">
+                            only 6 digit number accept..
+                        </div>
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+      
+</div>
+<div class="form-group"></div>
+<div class="form-group">
+    <div class="row">
+        <div class="col-md-1">
+            <label>Country:</label>
+        </div>
+        <div class="col-md-4">
+            <select class="form-control" formControlName="country">
+                <option value="null" disabled>SELECT</option>
+                <option>INDIA</option>
+                <option>USA</option>
+            </select>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="form-group">
+    <div class="row">
+        <div class="col-md-1">
+            <label>State</label>
+        </div>
+        <div class="col-md-4">
+            <select class="form-control" formControlName="state">
+                <option value="null" disabled>SELECT</option>
+                <option>Maharashtra</option>
+                <option>Karnataka</option>
+                <option>Gujrat</option>
+                <option>Goa</option>
+                <option>Assam</option>
+            </select>
+            <!-- <input type="text" class="form-control" name="State" [(ngModel)]="state"> -->
+        </div>
+    </div>
+    <div class="form-group"></div>
+    <div class="form-group">
+        <div class="row">
+            <div class="col-md-1">
+                <label>City:</label>
+            </div>
+            <div class="col-md-4">
+               
+                <select class="form-control" id="ddlcity" formControlName="city" >
+                    <option value="null" disabled>SELECT</option>
+                    <option>Pune</option>
+                    <option>Mumbai</option>
+                    <option>Banglore</option>
+                    <option>Udapi</option>
+                    <option>Surat</option>
+                </select>
+                <!-- <div class="alert alert-danger" *ngIf="studentModel.controls.city.hasError('required')&& (studentModel.controls.city.dirty||studentModel.controls.city.touched)">
+                    please Select City..
+
+                </div> -->
+                <!-- <input type="text" name="city" class="form-control" [(ngModel)]="city"> -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="form-group"></div>
+<div class="form-group">
+    <div class="row">
+        <div class="col-md-1">
+            <label>Gender</label>
+        </div>
+        <div class="col-md-4">
+            <input type="radio" value="Male" name="gender" formControlName="gender" value="male" [checked]="true">
+            <span>Male</span>
+            <input type="radio" value="Female" name="gender" formControlName="gender" value="female">
+            <span>Female</span>
+        </div>
+    </div>
+</div>
+<div class="form-group"></div>
+<div clas="form-group">
+    <div class="row">
+        <div class="col-md-1">
+            <label>Upload Resume</label>
+        </div>
+        <div class="col-md-4">
+            <!-- <button type="file" class="clicked" >SUBMIT</button> -->
+            <input type="file" formControlName="uploadfile" multiple="multiple" accept=".doc,.docx,.rtf,.pdf"
+                class=" clicked">
+        </div>
+    </div>
+
+</div>
+<div class="form-group"></div>
+<div clas="form-group">
+    <div class="row">
+        <div class="col-md-1">
+            <label></label>
+        </div>
+        <div class="col-md-4">
+            <input type="checkbox" formControlName="chkbx" (change)="changeCheck($event)">
+            <label for="term">I agreed to the Terms and Conditions governing the use of Naukri.com.</label>
+        </div>
+    </div>
+
+</div>
+<div class="form-group">
+    <div class="row">
+        <div class="col-md-1">
+            <input type="submit" class="btn btn-primary" [disabled]="disabledAgreement"  [disabled]="!disabledAgreement2" (click)="constructor()">
+        </div>&nbsp;&nbsp;&nbsp;
+        <div class="col-md-4">
+            <input type="submit" class="btn btn-secondary" value="cancel" >
+        </div>
+    </div>
+
+</div>
+
+<table border="1">
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>MobileNo</th>
+        <th>Password</th>
+        <th>Address</th>
+        <th>ZipCode</th>
+        <th>Country</th>
+        <th>State</th>
+        <th>City</th>
+        <th>Gender</th>
+        <th>UploadFile</th>
+        <th>Active</th>
+    </tr>
+    <tr *ngFor="let s of studentModel">
+        <td>{{s.name}}</td>
+        <td>{{s.email}}</td>
+        <td>{{s.mobileno}}</td>
+        <td>{{s.password}}</td>
+        <td>{{s.Address}}</td>
+        <td>{{s.ZipCode}}</td>
+        <td>{{s.country}}</td>
+        <td>{{s.state}}</td>
+        <td>{{s.city}}</td>
+        <td>{{s.gender}}</td>
+        <td>{{s.uploadfile}}</td>
+        <td>{{s.chkbx}}</td>
+    </tr>
+</table>
+
+</form>

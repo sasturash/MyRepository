@@ -1,0 +1,22 @@
+<div class="container">
+   <h1> {{USerInfo.data|json}}</h1>
+    <button type="submit" (click)=" GetAllUser()">Get User</button>
+<table border="1" class="table" style="text-align: center;">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Avtar</th>
+    </tr>
+    <tr *ngFor="let user of USerInfo.data">
+        <td>{{user.id}}</td>
+        <td>{{user.first_name}}</td>
+        <td>{{user.last_name}}</td>
+        <td>{{user.email}}</td>
+        <td>
+            <img src="{{user.avatar}}">
+            </td>
+    </tr>
+</table>
+</div>

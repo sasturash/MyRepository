@@ -1,0 +1,23 @@
+<div class="container">
+    <h1>{{USerInfo|json}}</h1>
+    <button type="submit" (click)="GetAllUser()">get Users</button>
+   <h1>{{title}}</h1> 
+   {{StudentInfo|json}}
+   <button type="submit" (click)="GetAll()" class="btn btn-primary">Show</button>
+   <br>
+   <br>
+   <br>
+   <h1>{{student}}</h1>
+<table border="1" class="table">
+    <tr>
+        <th>ID</th>
+        <th>name</th>
+        <th>city</th>
+    </tr>
+    <tr *ngFor="let s of StudentInfo">
+        <td>{{s.ID}}</td>
+        <td>{{s.name}}</td>
+        <td>{{s.city}}</td>
+    </tr>
+</table>
+</div>

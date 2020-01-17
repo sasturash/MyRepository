@@ -1,0 +1,22 @@
+<p [ngStyle]="mycolor">Hello Sastura..</p>
+<h2 [hidden]="IsHidden">pune</h2>
+<table border="1">
+    <tr>
+        <th>RollNo</th>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Designation</th>
+    </tr>
+    <tr *ngFor="let no of arryls">
+    <td>{{no.RollNo}}</td>
+    <td>{{no.Name}}</td>
+    <td>{{no.Address}}</td>
+    <td>{{no.Designation}}</td>    
+    </tr>
+</table>
+<p *ngIf="public">good morning</p>
+<button (click)="show=!show">{{show?'hide':'show'}}</button>
+show={{show}}
+<div *ngIf="show">Text to show</div>
+<div *ngIf="oddnum">{{(element%2==0)?'even':'odd'}}</div>
+<div *ngIf="isLogOut">This is Odd no{{elementodd}}</div>

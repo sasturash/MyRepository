@@ -1,0 +1,37 @@
+<div class="Card">
+    <div class="card-header">Calculator</div>
+    <div class="card-body">
+        <div class="form-group d-flex flex-row">
+           num1 <input type="number"  name="Number1" class="form-control"  [(ngModel)]="num1">
+            num2<input type="number"  name="Number2" class="form-control"  [(ngModel)]="num2">
+        </div>
+        <div>
+            <button type="button" class="btn btn-success"   (click)="Addition()">Add</button>
+            <button type="button" class="btn btn-primary"   (click)="Substraction()">Sub</button>
+            <button type="button" class="btn btn-danger"   (click)="Multiplication()">Mult</button>
+            <button type="button" class="btn btn-warning"   (click)="Division()">Div</button>
+        </div>
+    </div>
+    <div class="card-footer">
+<h4>The sum of{{num1}}and {{num2}} is{{result}}.</h4>
+    </div>
+</div>
+
+
+
+<!-- <p>Calculator Work</p>
+<div>
+    Enter the FirstNo=<input type="text" id="txtid1">
+    <br>
+</div>
+    
+
+
+<div>
+       Enetr the Second No=<input type="text" id="txtid2">
+    </div>
+
+<input type="button" value="Sum" style="color: green;"/>
+<input type="button" value="Sub" style="color: blue;"/>
+<input type="button" value="multi" style="color: red;"/>
+<input type="button" value="Div" style="color: yellow;"/> -->
